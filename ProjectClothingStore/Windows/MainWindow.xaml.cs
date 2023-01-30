@@ -34,4 +34,4 @@ namespace ProjectClothingStore
             FrameData.frame.Navigate(new AuthorizationPages());
         }
     }
-}
+}//
