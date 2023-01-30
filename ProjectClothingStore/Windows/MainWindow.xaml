@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectClothingStore"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
+        Title="MainWindow" Height="600" Width="500">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="9*"/>
@@ -17,23 +18,14 @@
             Width="50"
             VerticalAlignment="Top"
             Grid.Column="1"
-            Click="EnterAuth_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/Res/EnterAuth.png" Stretch="UniformToFill" TileMode="Tile" Opacity="0.75">
-                    <ImageBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
-                            <RotateTransform CenterX="0.5" CenterY="0.5"/>
-                            <TranslateTransform X="50" Y="50"/>
-                        </TransformGroup>
-                    </ImageBrush.RelativeTransform>
-                </ImageBrush>
-            </Button.Background>
+            Click="EnterAuth_Click"
+            >
+            
         </Button>
         <Frame x:Name="mainFrame"
                Grid.Column="0"
                Margin="10"
-               NavigationUIVisibility="Hidden"/>
+               NavigationUIVisibility="Hidden"
+               />
     </Grid>
 </Window>

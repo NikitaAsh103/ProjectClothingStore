@@ -404,7 +404,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Res\Логин.webp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -420,12 +419,12 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Resource Include="Pages\MainWindows\Фон Авторизации.jpeg" />
+    <Resource Include="Res\Фон Авторизации.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Res\EnterAuth.png" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

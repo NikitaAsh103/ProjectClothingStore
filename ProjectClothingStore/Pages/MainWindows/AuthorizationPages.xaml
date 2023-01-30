@@ -4,14 +4,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjectClothingStore.Pages.MainWindows"
-      
+      xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="400"
       Title="AuthorizationPages"
      >
-      
+
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush Opacity="0.7" ImageSource="/Pages/MainWindows/Фон Авторизации.jpeg"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
@@ -22,7 +25,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
@@ -33,6 +36,7 @@
                        Grid.Column="1"
                        Grid.Row="0"
                    VerticalAlignment="Center"
+                   FontFamily="Comic Sans MS"
                       />
         <TextBlock
                 Height="50"
@@ -43,6 +47,7 @@
                 Grid.Column="1"
                 Grid.Row="1"
             VerticalAlignment="Bottom"
+            FontFamily="Comic Sans MS"
                 />
         <TextBox
                 x:Name="TbLogin"
@@ -56,6 +61,7 @@
                 Grid.Row="2"
                 VerticalAlignment="Center" 
             HorizontalAlignment="Left"
+            Style="{StaticResource tbStyle}"
                 >
 
         </TextBox>
@@ -69,6 +75,7 @@
             Grid.Column="1"
             Grid.Row="3"
             VerticalAlignment="Bottom"
+            FontFamily="Comic Sans MS"
                 />
 
         <PasswordBox
@@ -81,6 +88,7 @@
                 Grid.Row="4"
              HorizontalAlignment="Left"   
             VerticalAlignment="Center"
+             Style="{StaticResource pbStyle}"
             
             />
 
@@ -107,6 +115,12 @@
                 Grid.Row="6"
             Click="BtRegister_Click"
                 />
+        <Image Source="{Icon:MaterialImage Kind=AccountBox}"
+               Grid.Row="1"
+               />
+        <Image Source="{Icon:MaterialImage Kind=Lock}"
+               Grid.Row="3"/>
+
 
 
 
