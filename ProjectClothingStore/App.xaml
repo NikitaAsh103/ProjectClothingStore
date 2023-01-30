@@ -35,7 +35,7 @@
         <Style TargetType="{x:Type Button}" x:Key="btStyle">
             <Style.Resources>
                 <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="50"/>
+                    <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Style.Resources>
             <Setter Property="BorderBrush" Value="Black"/>

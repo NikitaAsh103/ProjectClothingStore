@@ -6,7 +6,15 @@
         xmlns:local="clr-namespace:ProjectClothingStore"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="500">
+        Title="MainWindow" 
+        Height="750" 
+        Width="600"
+       Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+       
+        >
+   
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="9*"/>
@@ -15,17 +23,25 @@
         <Button
             x:Name="EnterAuth"
             Height="50"
-            Width="50"
+            Width="40"
             VerticalAlignment="Top"
+            Margin="5 20 5 5"
             Grid.Column="1"
-            Click="EnterAuth_Click"
-            >
+             Style="{StaticResource btStyle}"
+            Click="EnterAuth_Click" BorderBrush="Black"
             
-        </Button>
+            >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Windows/Переход На Авторизацию.jpg"/>
+                </Button.Background>
+
+            </Button>
         <Frame x:Name="mainFrame"
                Grid.Column="0"
                Margin="10"
                NavigationUIVisibility="Hidden"
+               
                />
     </Grid>
+   
 </Window>

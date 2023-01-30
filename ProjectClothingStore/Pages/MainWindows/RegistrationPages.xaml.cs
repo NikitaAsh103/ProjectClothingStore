@@ -24,5 +24,7 @@ namespace ProjectClothingStore.Pages.MainWindows
         {
             InitializeComponent();
         }
+
+      
     }
 }

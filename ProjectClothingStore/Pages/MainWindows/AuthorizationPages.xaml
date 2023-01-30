@@ -6,11 +6,14 @@
       xmlns:local="clr-namespace:ProjectClothingStore.Pages.MainWindows"
       xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="400"
+      d:DesignHeight="800" d:DesignWidth="500"
       Title="AuthorizationPages"
+      
+      
      >
 
-    <Grid>
+    <Grid >
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
@@ -22,12 +25,12 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="1" Grid.Column="1" Height="600" Width="350">
+        <Grid Grid.Row="1" Grid.Column="1" Height="500" Width="350">
             <Grid.Background>
-                <ImageBrush 
-                
-                Opacity="0.4" 
-                ImageSource="/Pages/MainWindows/Это Фон.jpg" TileMode="None" Stretch="UniformToFill" />
+                <LinearGradientBrush Opacity="1" EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFDE0AF5"/>
+                    <GradientStop Color="#FF09FBF6" Offset="1"/>
+                </LinearGradientBrush>
             </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
@@ -47,7 +50,7 @@
                        FontSize="40" 
                        TextAlignment="Center" 
                        Foreground="Black"
-                       Grid.Column="1"
+                       Grid.ColumnSpan="2"
                        Grid.Row="0"
                    VerticalAlignment="Center"
                    FontFamily="Comic Sans MS"
@@ -71,7 +74,7 @@
                 FontSize="20"
                 TextAlignment="Left"
                 Foreground="Black"
-                Grid.Column="1"
+                Grid.ColumnSpan="2"
                 Grid.Row="2"
                 VerticalAlignment="Center" 
             HorizontalAlignment="Left"
@@ -99,7 +102,7 @@
                 Width="250"
                 FontSize="20"
                 Foreground="Black"
-                Grid.Column="1"
+                Grid.ColumnSpan="2"
                 Grid.Row="4"
              HorizontalAlignment="Left"   
             VerticalAlignment="Center"
@@ -116,14 +119,15 @@
                 FontSize="20"
                 Width="150"
                 HorizontalAlignment="Center"
-                Content="Вход"
+                Content="Войти"
                 
                 Click="BtEnter_Click"
-            Grid.Column="1"
+            Grid.ColumnSpan="2"
             Grid.Row="5"
             Style="{StaticResource btStyle}" 
-                >
-            </Button>
+                Background="White" 
+                
+                />
             <Button
                 x:Name="BtRegister"
                 Height="50"
@@ -131,10 +135,10 @@
                 Width="200"
                 HorizontalAlignment="Center"
                 Content="Регистрация"
-                Grid.Column="1"
+                Grid.ColumnSpan="2"
                 Grid.Row="6"
             Click="BtRegister_Click"
-            Style="{StaticResource btStyle}"
+            Style="{StaticResource btStyle}" Background="White"
                 />
             <Image Height="40" Width="40" Source="{Icon:MaterialImage Kind=AccountBox}"
                Grid.Row="1"

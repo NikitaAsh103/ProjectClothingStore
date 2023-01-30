@@ -419,7 +419,7 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Resource Include="Pages\MainWindows\Это Фон.jpg" />
+    <Resource Include="Windows\Переход На Авторизацию.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
