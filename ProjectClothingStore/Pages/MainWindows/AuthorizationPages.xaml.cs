@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectClothingStore.ClassHelper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
@@ -27,6 +28,7 @@ namespace ProjectClothingStore.Pages.MainWindows
         public AuthorizationPages()
         {
             InitializeComponent();
+            
         }
 
         private void BtEnter_Click(object sender, RoutedEventArgs e)
@@ -42,6 +44,11 @@ namespace ProjectClothingStore.Pages.MainWindows
             {
                 MessageBox.Show("Такого пользователя нет", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void BtRegister_Click(object sender, RoutedEventArgs e)
+        {
+            FrameData.frame.Navigate(new RegistrationPages());
         }
     }
 }

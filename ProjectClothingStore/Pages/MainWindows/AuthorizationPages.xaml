@@ -4,97 +4,112 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjectClothingStore.Pages.MainWindows"
+      
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="400"
-      Title="AuthorizationPages">
+      Title="AuthorizationPages"
+     >
+      
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="47*"/>
-            <RowDefinition Height="153*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Vertical" Margin="40,0,40,0" Grid.RowSpan="2" >
-            <TextBlock Text="Авторизация" 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Авторизация" 
                        FontSize="40" 
                        TextAlignment="Center" 
                        Foreground="Black"
-                      
-                       
-                       
-                       />
-            <TextBlock
+                       Grid.Column="1"
+                       Grid.Row="0"
+                   VerticalAlignment="Center"
+                      />
+        <TextBlock
                 Height="50"
-                Text="Введите логин"
+                Text="Введите логин:"
                 FontSize="20"
                 TextAlignment="Left"
                 Foreground="Black"
-                Margin="0 20 0 0 "
-                
-                
+                Grid.Column="1"
+                Grid.Row="1"
+            VerticalAlignment="Bottom"
                 />
-            <TextBox
+        <TextBox
                 x:Name="TbLogin"
                 
                 Height="50"
+            Width="250"
                 FontSize="20"
                 TextAlignment="Left"
-                Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="288"
-                
+                Foreground="Black"
+                Grid.Column="1"
+                Grid.Row="2"
+                VerticalAlignment="Center" 
+            HorizontalAlignment="Left"
                 >
-                <TextBox.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="0.352"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </TextBox.RenderTransform>
-            </TextBox>
-            <TextBlock
+
+        </TextBox>
+        <TextBlock
                 Height="50"
                 FontSize="20"
                 TextAlignment="Left"
                 Foreground="Black"
-                Text="Введите пароль "
+                Text="Введите пароль: "
                 Margin="0 20 0 0"
+            Grid.Column="1"
+            Grid.Row="3"
+            VerticalAlignment="Bottom"
                 />
 
-            <PasswordBox
+        <PasswordBox
                 x:Name="PbPassword"
                 Height="50"
+                Width="250"
                 FontSize="20"
-                Foreground="Black" Width="289"/>
+                Foreground="Black"
+                Grid.Column="1"
+                Grid.Row="4"
+             HorizontalAlignment="Left"   
+            VerticalAlignment="Center"
+            
+            />
 
-            <Button
+        <Button
                 x:Name="BtEnter"
                 Height="50"
                 FontSize="20"
-                Width="100"
-                Margin="0 40 0 0 " 
+                Width="150"
                 HorizontalAlignment="Center"
                 Content="Вход"
                 Click="BtEnter_Click"
+            Grid.Column="1"
+            Grid.Row="5"
                 >
-            </Button>
-            <Button
+        </Button>
+        <Button
                 x:Name="BtRegister"
                 Height="50"
                 FontSize="20"
-                Width="150"
-                Margin="0 40 0 0 " 
+                Width="200"
                 HorizontalAlignment="Center"
                 Content="Регистрация"
-                
+                Grid.Column="1"
+                Grid.Row="6"
+            Click="BtRegister_Click"
                 />
 
-        </StackPanel>
-        <Image HorizontalAlignment="Left" 
-               Height="49" 
-               Margin="0,122,0,0" 
-               VerticalAlignment="Top" 
-               Width="45" 
-               Grid.RowSpan="2"
-               Source="C:\Users\xeek1\OneDrive\Рабочий стол\ProjectClothingStore\ProjectClothingStore\Res\Логин.webp"/>
+
+
 
     </Grid>
 </Page>

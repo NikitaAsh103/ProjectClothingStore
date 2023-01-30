@@ -9,6 +9,8 @@
       Title="RegistrationPages">
 
     <Grid>
-        
+        <TextBlock Text="Регистрация"
+                   FontSize="50"
+                   />
     </Grid>
 </Page>

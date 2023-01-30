@@ -26,6 +26,7 @@ namespace ProjectClothingStore
         {
             InitializeComponent();
             FrameData.frame = mainFrame;
+            FrameData.frame.Navigate(new AuthorizationPages());
         }
 
         private void EnterAuth_Click(object sender, RoutedEventArgs e)

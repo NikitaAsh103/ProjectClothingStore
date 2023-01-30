@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7a9eb52cc27c4af2b0a2e2be5ad55608" Name="Diagram1">
+      <Diagram DiagramId="e3f19630166f4016b3ca61a32cc0b0fb" Name="Diagram1">
         <EntityTypeShape EntityType="ClothingStorePanBabModel.BonusCard" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="ClothingStorePanBabModel.Characteristic" Width="1.5" PointX="7.5" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ClothingStorePanBabModel.Client" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />

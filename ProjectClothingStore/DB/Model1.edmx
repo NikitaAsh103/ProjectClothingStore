@@ -121,8 +121,8 @@
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="PhoneNumber" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Birthday" Type="datetime" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nchar" MaxLength="12" Nullable="false" />
+          <Property Name="Birthday" Type="date" Nullable="false" />
           <Property Name="IDGender" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Characteristic_Color">
@@ -524,8 +524,8 @@
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="12" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IDGender" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Client_User" FromRole="User" ToRole="Client" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_User" FromRole="User" ToRole="Employee" />
