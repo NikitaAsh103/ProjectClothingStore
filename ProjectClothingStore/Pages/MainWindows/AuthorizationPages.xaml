@@ -9,7 +9,11 @@
       Title="AuthorizationPages">
 
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="40 0 40 0 " >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="153*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Margin="40,0,40,0" Grid.RowSpan="2" >
             <TextBlock Text="Авторизация" 
                        FontSize="40" 
                        TextAlignment="Center" 
@@ -34,9 +38,18 @@
                 Height="50"
                 FontSize="20"
                 TextAlignment="Left"
-                Foreground="Black"
+                Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="288"
                 
-                />
+                >
+                <TextBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.352"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBox.RenderTransform>
+            </TextBox>
             <TextBlock
                 Height="50"
                 FontSize="20"
@@ -50,7 +63,7 @@
                 x:Name="PbPassword"
                 Height="50"
                 FontSize="20"
-                Foreground="Black"/>
+                Foreground="Black" Width="289"/>
 
             <Button
                 x:Name="BtEnter"
@@ -74,10 +87,14 @@
                 
                 />
 
-
-
-
-
         </StackPanel>
+        <Image HorizontalAlignment="Left" 
+               Height="49" 
+               Margin="0,122,0,0" 
+               VerticalAlignment="Top" 
+               Width="45" 
+               Grid.RowSpan="2"
+               Source="C:\Users\xeek1\OneDrive\Рабочий стол\ProjectClothingStore\ProjectClothingStore\Res\Логин.webp"/>
+
     </Grid>
 </Page>
