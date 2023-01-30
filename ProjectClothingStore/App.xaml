@@ -12,14 +12,33 @@
                     <Setter Property="CornerRadius" Value="15"/>
                 </Style>
             </Style.Resources>
+            <Setter Property="BorderBrush" Value="Black"/>
         </Style>
 
-        <Style TargetType="{x:Type PasswordBox}" x:Key="pbStyle">
+        <ControlTemplate x:Key="pbStyle" TargetType="{x:Type PasswordBox}">
+
+            <Border Background="{TemplateBinding Background}" 
+    x:Name="Bd" BorderBrush="Black"
+    BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="15">
+                
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+                
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+
+        <Style TargetType="{x:Type Button}" x:Key="btStyle">
             <Style.Resources>
                 <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="15"/>
+                    <Setter Property="CornerRadius" Value="50"/>
                 </Style>
             </Style.Resources>
+            <Setter Property="BorderBrush" Value="Black"/>
         </Style>
 
 

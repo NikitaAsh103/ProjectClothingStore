@@ -10,26 +10,40 @@
       Title="AuthorizationPages"
      >
 
-
     <Grid>
-        <Grid.Background>
-            <ImageBrush Opacity="0.7" ImageSource="/Pages/MainWindows/Фон Авторизации.jpeg"/>
-        </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Авторизация" 
+        <Grid Grid.Row="1" Grid.Column="1" Height="600" Width="350">
+            <Grid.Background>
+                <ImageBrush 
+                
+                Opacity="0.4" 
+                ImageSource="/Pages/MainWindows/Это Фон.jpg" TileMode="None" Stretch="UniformToFill" />
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Авторизация" 
                        FontSize="40" 
                        TextAlignment="Center" 
                        Foreground="Black"
@@ -38,7 +52,7 @@
                    VerticalAlignment="Center"
                    FontFamily="Comic Sans MS"
                       />
-        <TextBlock
+            <TextBlock
                 Height="50"
                 Text="Введите логин:"
                 FontSize="20"
@@ -49,7 +63,7 @@
             VerticalAlignment="Bottom"
             FontFamily="Comic Sans MS"
                 />
-        <TextBox
+            <TextBox
                 x:Name="TbLogin"
                 
                 Height="50"
@@ -61,11 +75,12 @@
                 Grid.Row="2"
                 VerticalAlignment="Center" 
             HorizontalAlignment="Left"
-            Style="{StaticResource tbStyle}"
+            Style="{StaticResource tbStyle}" Opacity="0.75"
                 >
 
-        </TextBox>
-        <TextBlock
+
+            </TextBox>
+            <TextBlock
                 Height="50"
                 FontSize="20"
                 TextAlignment="Left"
@@ -78,7 +93,7 @@
             FontFamily="Comic Sans MS"
                 />
 
-        <PasswordBox
+            <PasswordBox
                 x:Name="PbPassword"
                 Height="50"
                 Width="250"
@@ -88,23 +103,28 @@
                 Grid.Row="4"
              HorizontalAlignment="Left"   
             VerticalAlignment="Center"
-             Style="{StaticResource pbStyle}"
+             Template="{StaticResource pbStyle}" Opacity="0.75"
             
-            />
+            
+            >
 
-        <Button
+            </PasswordBox>
+
+            <Button
                 x:Name="BtEnter"
                 Height="50"
                 FontSize="20"
                 Width="150"
                 HorizontalAlignment="Center"
                 Content="Вход"
+                
                 Click="BtEnter_Click"
             Grid.Column="1"
             Grid.Row="5"
+            Style="{StaticResource btStyle}" 
                 >
-        </Button>
-        <Button
+            </Button>
+            <Button
                 x:Name="BtRegister"
                 Height="50"
                 FontSize="20"
@@ -114,16 +134,20 @@
                 Grid.Column="1"
                 Grid.Row="6"
             Click="BtRegister_Click"
+            Style="{StaticResource btStyle}"
                 />
-        <Image Source="{Icon:MaterialImage Kind=AccountBox}"
+            <Image Height="40" Width="40" Source="{Icon:MaterialImage Kind=AccountBox}"
                Grid.Row="1"
                />
-        <Image Source="{Icon:MaterialImage Kind=Lock}"
+            <Image Height="40" Width="40" Source="{Icon:MaterialImage Kind=Lock}"
                Grid.Row="3"/>
 
 
 
 
 
+        </Grid>
+
     </Grid>
+
 </Page>
