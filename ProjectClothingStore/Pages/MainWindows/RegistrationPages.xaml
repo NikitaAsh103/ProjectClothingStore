@@ -238,7 +238,8 @@
                 Grid.Row="9"
                 Height="45"
                 Width="350"
-                Template="{StaticResource pbStyle}" Opacity="0.75"
+                Template="{StaticResource pbStyle}" 
+                Opacity="0.75"
                 
                 />
 
