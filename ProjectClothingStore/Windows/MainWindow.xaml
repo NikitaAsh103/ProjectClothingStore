@@ -7,9 +7,9 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="750" 
-        Width="600"
-       Background="Transparent"
+        Height="950" 
+        Width="750"
+       Background="White"
         WindowStartupLocation="CenterScreen"
        
         >
@@ -27,21 +27,26 @@
             VerticalAlignment="Top"
             Margin="5 20 5 5"
             Grid.Column="1"
-             Style="{StaticResource btStyle}"
-            Click="EnterAuth_Click" BorderBrush="Black"
+            Style="{StaticResource btStyle}"
+            Click="EnterAuth_Click" BorderBrush="Black">
             
-            >
-                <Button.Background>
-                    <ImageBrush ImageSource="/Windows/Переход На Авторизацию.jpg"/>
-                </Button.Background>
+            <Button.Background>
+                <ImageBrush ImageSource="/Windows/Переход На Авторизацию.jpg"/>
+            </Button.Background>
+        </Button>
 
-            </Button>
-        <Frame x:Name="mainFrame"
-               Grid.Column="0"
-               Margin="10"
-               NavigationUIVisibility="Hidden"
-               
-               />
+        <Border Grid.Column="0" 
+                CornerRadius="35"
+                Background="Aqua"
+                Margin="15"
+                BorderBrush="Black"
+                BorderThickness="2">
+            <Frame x:Name="mainFrame"
+                   Margin="10"
+                   NavigationUIVisibility="Hidden"/>
+        </Border>
+        
+        
     </Grid>
    
 </Window>

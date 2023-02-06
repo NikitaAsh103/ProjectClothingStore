@@ -6,8 +6,8 @@
       xmlns:local="clr-namespace:ProjectClothingStore.Pages.MainWindows"
       mc:Ignorable="d" 
       
-      d:DesignHeight="800" 
-      d:DesignWidth="500"
+      d:DesignHeight="750" 
+      d:DesignWidth="600"
       Title="RegistrationPages">
 
 
@@ -71,9 +71,14 @@
                 Grid.Row="1"
                 Height="45"
                 Width="350"
-                Style="{StaticResource tbStyle}" Opacity="0.75"
+                Style="{StaticResource tbStyle}"
+                    Opacity="0.75"
+                    VerticalContentAlignment="Center"
+                    FontSize="25"
+                    Text="Введите Логин"
                  HorizontalAlignment="Right"
-                
+                GotFocus="TbLogin_GotFocus"
+                    LostFocus="TbLogin_LostFocus"
                 />
                 <TextBlock Text="Email:" 
                        FontSize="25" 
@@ -169,65 +174,64 @@
                       />
                 <TextBox
                 x:Name="TbPhoneNumber"
-               
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Grid.Column="1"
                 Grid.Row="6"
                 Height="45"
                 Width="350"
-                Style="{StaticResource tbStyle}" Opacity="0.75" />
+                Style="{StaticResource tbStyle}" 
+                Opacity="0.75" />
 
-                <TextBlock Text="Дата рождения:" 
-                       FontSize="25" 
-                       TextAlignment="Left" 
-                       Foreground="Black"
-                       Grid.Row="8"
-                       VerticalAlignment="Center"
-                       FontFamily="Comic Sans MS"
-                       
-                      />
-
+                <TextBlock 
+                 Text="Дата рождения:" 
+                 FontSize="25" 
+                 TextAlignment="Left" 
+                 Foreground="Black"
+                 Grid.Row="8"
+                 VerticalAlignment="Center"
+                 FontFamily="Comic Sans MS"/>
+                
                 <DatePicker 
-                    Name="datePicker1" 
-                    IsDropDownOpen="True" 
-                    SelectedDateFormat="Short" 
-                    Grid.Row="8"
-                    Height="30"
-                    Width="200" 
-                    Margin="215,5,75,6" 
-                    />
+                 Name="DPDateOfBirthday" 
+                 BorderThickness="0"
+                 SelectedDateFormat="Short" 
+                 Grid.Row="8"
+                 Height="30"
+                 Width="200" 
+                 Margin="215,5,75,6"/>
 
 
 
-                <TextBlock Text="Пол:" 
-                       FontSize="25" 
-                       TextAlignment="Left" 
-                       Foreground="Black"
-                       Grid.Row="7"
-                       VerticalAlignment="Center"
-                       FontFamily="Comic Sans MS"
-                       Margin="20,15,0,14"
-                       
-                      />
+                <TextBlock 
+                 Text="Пол:" 
+                 FontSize="25" 
+                 TextAlignment="Left" 
+                 Foreground="Black"
+                 Grid.Row="7"
+                 VerticalAlignment="Center"
+                 FontFamily="Comic Sans MS"
+                 Margin="20,15,0,14"/>
+                
+                
                 <ComboBox
-                    Width="100"
-                    Height="40"
-                    Grid.Column="1"
-                    Grid.Row="7"/>
+                 x:Name="CmbGender"
+                 Width="100"
+                 Height="40"
+                 Grid.Column="1"
+                 Grid.Row="7"/>
 
-                <TextBlock Text="Пароль:" 
-                       
-                       FontSize="25" 
-                       TextAlignment="Left" 
-                       Foreground="Black"
-                       Grid.Row="9"
-                       VerticalAlignment="Center"
-                       FontFamily="Comic Sans MS"
-                       Margin="20,15,0,14"
-                       
-                       
-                      />
+                
+                <TextBlock 
+                 Text="Пароль:" 
+                 FontSize="25" 
+                 TextAlignment="Left" 
+                 Foreground="Black"
+                 Grid.Row="9"
+                 VerticalAlignment="Center"
+                 FontFamily="Comic Sans MS"
+                 Margin="20,15,0,14"/>
+                
 
                 <PasswordBox
                 x:Name="PbPassword"
@@ -252,6 +256,7 @@
                 Height="50"
                 FontSize="30"
                 Style="{StaticResource btStyle}"
+                    Click="BtnRegistration_Click"
                 />
 
 
