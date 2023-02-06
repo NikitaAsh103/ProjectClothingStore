@@ -72,13 +72,10 @@
                 Height="45"
                 Width="350"
                 Style="{StaticResource tbStyle}"
-                    Opacity="0.75"
-                    VerticalContentAlignment="Center"
-                    FontSize="25"
-                    Text="Введите Логин"
-                 HorizontalAlignment="Right"
+                
+                Text="Введите Логин"
                 GotFocus="TbLogin_GotFocus"
-                    LostFocus="TbLogin_LostFocus"
+                LostFocus="TbLogin_LostFocus"
                 />
                 <TextBlock Text="Email:" 
                        FontSize="25" 
@@ -153,7 +150,6 @@
 
                 <TextBox
                 x:Name="TbPatronymic"
-               
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Grid.Column="1"
@@ -231,21 +227,17 @@
                  VerticalAlignment="Center"
                  FontFamily="Comic Sans MS"
                  Margin="20,15,0,14"/>
-                
+
 
                 <PasswordBox
                 x:Name="PbPassword"
-               
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
                 Grid.Column="1"
                 Grid.Row="9"
-                Height="45"
-                Width="350"
-                Template="{StaticResource pbStyle}" 
-                Opacity="0.75"
-                
-                />
+                    Width="350"
+                    Height="45"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                Style="{StaticResource PasswordBoxStyle1}"/>
 
 
                 <Button

@@ -37,9 +37,9 @@
 
         <Border Grid.Column="0" 
                 CornerRadius="35"
-                Background="Aqua"
+                Background="#4CA4008E"
                 Margin="15"
-                BorderBrush="Black"
+                BorderBrush="#FFAFAFAF"
                 BorderThickness="2">
             <Frame x:Name="mainFrame"
                    Margin="10"
