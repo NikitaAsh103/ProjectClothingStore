@@ -34,46 +34,115 @@ namespace ProjectClothingStore.Pages.MainWindows
 
         private void BtnRegistration_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(TbLogin.Text))
+            //Валидация поля Логин
+            if (TbLogin.Text == "Введите Логин")
             {
                 MessageBox.Show("Поле Логин должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            else if (string.IsNullOrWhiteSpace(TbLogin.Text))
+            {
+                MessageBox.Show("Поле Логин должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            else if (TbLogin.Text.Length>30)
+            {
+                MessageBox.Show("Доупустимое количество символов в поле логин 30", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            //Валидация поля Email
+
             else if (string.IsNullOrWhiteSpace(TbEmail.Text))
             {
-                MessageBox.Show("Поле Логин должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Поле Email должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
+            string[] dataLogin = TbEmail.Text.Split('@'); // делим строку на две части
+            if (dataLogin.Length != 2 ) // проверяем если у нас две части
+            {
+                MessageBox.Show("Поле Email заполнено не по формату x@x.x", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            string[] data2Login = dataLogin[1].Split('.'); // делим вторую часть ещё на две части
+            if (data2Login.Length != 2) // проверяем если у нас две части
+            {
+                MessageBox.Show("Поле Email заполнено не по формату x@x.x", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            //Валидация поля Фамилия
+            
             else if (string.IsNullOrWhiteSpace(TbLastName.Text))
             {
-                MessageBox.Show("Поле Логин должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Поле Фамилия должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            
+            else if (TbLastName.Text.Length<3 && TbLastName.Text.Length>50)
+            {
+                MessageBox.Show("Неправильно заполнено поле Фамилия", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            bool symbol = false;
+            bool number = false;
+
+            for (int i = 0; i < TbLastName.Text.Length; i++) // перебираем символы
+            {
+                if (TbLastName.Text[i] >= '0' && TbLastName.Text[i]<='9') number = true;
+                if (TbLastName.Text[i] == '-' || TbLastName.Text[i] == '_' || 
+                    TbLastName.Text[i] == '=' || TbLastName.Text[i] == '+' || 
+                    TbLastName.Text[i] == ':' || TbLastName.Text[i] == ';' ||
+                    TbLastName.Text[i] == '!' || TbLastName.Text[i] == '@' ||
+                    TbLastName.Text[i] == '#' || TbLastName.Text[i] == '%' ||
+                    TbLastName.Text[i] == '*') symbol = true;
+            }
+            
+            if (number)
+            {
+                MessageBox.Show("В поле Фамилия не должны присутствовать цифры", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            else if (symbol)
+            {
+                MessageBox.Show("В поле Фамилия не должны присутствовать символы", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+               
+            //Валидация поля Имя
+
             else if (string.IsNullOrWhiteSpace(TbFirsName.Text))
             {
-                MessageBox.Show("Поле Логин должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Поле Имя должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
             else if (string.IsNullOrWhiteSpace(TbPatronymic.Text))
             {
                 MessageBox.Show("Поле Логин должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
             else if (string.IsNullOrWhiteSpace(TbPhoneNumber.Text))
             {
                 MessageBox.Show("Поле Логин должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
             else if (string.IsNullOrWhiteSpace(CmbGender.Text))
             {
                 MessageBox.Show("Поле Пола должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
             else if (string.IsNullOrWhiteSpace(DPDateOfBirthday.Text))
             {
                 MessageBox.Show("Поле Даты Рождения должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
             else if (string.IsNullOrWhiteSpace(PbPassword.Password))
             {
                 MessageBox.Show("Поле Пароль должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);

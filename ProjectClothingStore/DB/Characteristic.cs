@@ -25,6 +25,7 @@ namespace ProjectClothingStore.DB
         public int IDSize { get; set; }
         public int IDProduct { get; set; }
         public Nullable<decimal> ChangePrice { get; set; }
+        public byte[] Image { get; set; }
     
         public virtual Color Color { get; set; }
         public virtual Product Product { get; set; }

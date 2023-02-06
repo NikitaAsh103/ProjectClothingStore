@@ -21,6 +21,7 @@
           <Property Name="IDSize" Type="int" Nullable="false" />
           <Property Name="IDProduct" Type="int" Nullable="false" />
           <Property Name="ChangePrice" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Image" Type="image" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -120,7 +121,7 @@
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
-          <Property Name="Email" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PhoneNumber" Type="nchar" MaxLength="12" Nullable="false" />
           <Property Name="Birthday" Type="date" Nullable="false" />
           <Property Name="IDGender" Type="int" Nullable="false" />
@@ -402,6 +403,7 @@
           <Property Name="IDSize" Type="Int32" Nullable="false" />
           <Property Name="IDProduct" Type="Int32" Nullable="false" />
           <Property Name="ChangePrice" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Color" Relationship="Self.FK_Characteristic_Color" FromRole="Characteristic" ToRole="Color" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Characteristic_Product" FromRole="Characteristic" ToRole="Product" />
           <NavigationProperty Name="Size" Relationship="Self.FK_Characteristic_Size" FromRole="Characteristic" ToRole="Size" />
@@ -523,7 +525,7 @@
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PhoneNumber" Type="String" MaxLength="12" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IDGender" Type="Int32" Nullable="false" />
@@ -818,6 +820,7 @@
                 <ScalarProperty Name="IDSize" ColumnName="IDSize" />
                 <ScalarProperty Name="IDProduct" ColumnName="IDProduct" />
                 <ScalarProperty Name="ChangePrice" ColumnName="ChangePrice" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

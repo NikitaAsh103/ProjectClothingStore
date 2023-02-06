@@ -7,7 +7,7 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="950" 
+        Height="900" 
         Width="750"
        Background="White"
         WindowStartupLocation="CenterScreen"
@@ -42,7 +42,7 @@
                 BorderBrush="#FFAFAFAF"
                 BorderThickness="2">
             <Frame x:Name="mainFrame"
-                   Margin="10"
+                   
                    NavigationUIVisibility="Hidden"/>
         </Border>
         

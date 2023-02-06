@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e3f19630166f4016b3ca61a32cc0b0fb" Name="Diagram1">
+      <Diagram DiagramId="ac3f6f9fc1db435d97acaf8352f018fa" Name="Diagram1">
         <EntityTypeShape EntityType="ClothingStorePanBabModel.BonusCard" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClothingStorePanBabModel.Characteristic" Width="1.5" PointX="7.5" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClothingStorePanBabModel.Characteristic" Width="1.5" PointX="7.5" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ClothingStorePanBabModel.Client" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClothingStorePanBabModel.Color" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClothingStorePanBabModel.Color" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="ClothingStorePanBabModel.Employee" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ClothingStorePanBabModel.Gender" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="ClothingStorePanBabModel.Order" Width="1.5" PointX="7.5" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="ClothingStorePanBabModel.OrderProduct" Width="1.5" PointX="9.75" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ClothingStorePanBabModel.Position" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClothingStorePanBabModel.Product" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClothingStorePanBabModel.Size" Width="1.5" PointX="5.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClothingStorePanBabModel.Product" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClothingStorePanBabModel.Size" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ClothingStorePanBabModel.Status" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ClothingStorePanBabModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ClothingStorePanBabModel.User" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
