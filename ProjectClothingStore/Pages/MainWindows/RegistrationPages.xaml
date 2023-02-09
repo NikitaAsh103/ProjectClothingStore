@@ -72,7 +72,6 @@
                 Height="45"
                 Width="350"
                 Style="{StaticResource tbStyle}"
-                
                 Text="Введите Логин"
                 GotFocus="TbLogin_GotFocus"
                 LostFocus="TbLogin_LostFocus"
