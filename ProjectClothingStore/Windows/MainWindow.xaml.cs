@@ -35,4 +35,4 @@ namespace ProjectClothingStore
             FrameData.frame.Navigate(new ProductsPages());
         }
     }
-}//
+}//Привет
