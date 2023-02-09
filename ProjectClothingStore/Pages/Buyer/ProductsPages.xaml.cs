@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ProjectClothingStore.ClassHelper;
+using ProjectClothingStore.Windows;
+using ProjectClothingStore.DB;
 
 namespace ProjectClothingStore.Pages.Buyer
 {
@@ -23,6 +26,15 @@ namespace ProjectClothingStore.Pages.Buyer
         public ProductsPages()
         {
             InitializeComponent();
+            GetListProduct();
+        }
+
+        private void GetListProduct() 
+        {
+            List<Product> products = new List<Product>();
+            products = EFclass.Contexts.Product.ToList();
+
+            LvProduct.ItemsSource = products;   
         }
     }
 }

@@ -9,6 +9,50 @@
       Title="ProductsPages">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <TextBlock
+            Text="Плитки"
+            HorizontalAlignment="Center"
+            FontSize="20"/>
+
+        <ListView
+            x:Name="LvProduct"
+            Grid.Row="2"
+            Margin="5"
+            d:ItemsSource="{d:SampleData ItemCount=5}"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <!--<ListView.View>
+                <GridView>
+                <GridViewColumn
+                Header="0"
+                Width="150"
+                DisplayMemberBinding="{Binding Name}"/>
+                </GridView>
+            </ListView.View>-->
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Gray"
+                            BorderThickness="2"
+                            Width="100"
+                            Height="150"
+                            Margin="5">
+                        <StackPanel>
+                            <Image Height="100"
+                                   Width="90"/>
+                            <TextBlock Text="{Binding Name}"
+                                       Margin="5 0 0 0"/>
+                            <TextBlock Text="{Binding Price}"
+                                       Margin="5 0 0 0"/> 
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

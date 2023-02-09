@@ -206,7 +206,7 @@ namespace ProjectClothingStore.Pages.MainWindows
             
             
 
-
+            //Добавление Пользователя
             EFclass.Contexts.User.Add(new User()
             {
                 Login = TbLogin.Text,
