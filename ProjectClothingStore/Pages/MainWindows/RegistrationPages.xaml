@@ -25,14 +25,8 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="1" Grid.Column="1" Height="700" Width="500"
                   >
-            <Grid Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="0,10,10,10">
-                <Grid.Background>
-                    <RadialGradientBrush>
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="#FF5D4E91" Offset="1"/>
-                        <GradientStop Color="#FF5D00B9"/>
-                    </RadialGradientBrush>
-                </Grid.Background>
+            <Grid Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="0,10,10,10" Background="White">
+                
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
@@ -87,6 +81,9 @@
                       />
                 <TextBox
                 x:Name="TbEmail"
+                    Text="Введите Email"
+                    GotFocus="TbEmail_GotFocus"
+                    LostFocus="TbEmail_LostFocus"
                
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
@@ -107,6 +104,9 @@
                       />
                 <TextBox
                 x:Name="TbLastName"
+                    Text="Введите Фамилию"
+                    GotFocus="TbLastName_GotFocus"
+                    LostFocus="TbLastName_LostFocus"
                
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
@@ -128,6 +128,9 @@
                       />
                 <TextBox
                 x:Name="TbFirsName"
+                    Text="Введите Имя"
+                    GotFocus="TbFirstName_GotFocus"
+                    LostFocus="TbFirstName_LostFocus"
                
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
@@ -149,6 +152,9 @@
 
                 <TextBox
                 x:Name="TbPatronymic"
+                    Text="Введите Oтчество"
+                    GotFocus="TbPatronymic_GotFocus"
+                    LostFocus="TbPatronymic_LostFocus"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Grid.Column="1"
@@ -169,6 +175,9 @@
                       />
                 <TextBox
                 x:Name="TbPhoneNumber"
+                    Text="Введите Номер"
+                    GotFocus="TbPhoneNumber_GotFocus"
+                    LostFocus="TbPhoneNumber_LostFocus"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Grid.Column="1"
@@ -230,6 +239,7 @@
 
                 <PasswordBox
                 x:Name="PbPassword"
+                    
                 Grid.Column="1"
                 Grid.Row="9"
                     Width="350"

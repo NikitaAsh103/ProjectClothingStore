@@ -26,15 +26,15 @@ namespace ProjectClothingStore.Pages.Buyer
         public ProductsPages()
         {
             InitializeComponent();
-            GetListProduct();
+           // GetListProduct();
         }
 
-        private void GetListProduct() 
-        {
-            List<Product> products = new List<Product>();
-            products = EFclass.Contexts.Product.ToList();
+        //private void GetListProduct() 
+        //{
+        //    List<Product> products = new List<Product>();
+        //    products = EFclass.Contexts.Product.ToList();
 
-            LvProduct.ItemsSource = products;   
-        }
+        //    LvProduct.ItemsSource = products;   
+        //}
     }
 }

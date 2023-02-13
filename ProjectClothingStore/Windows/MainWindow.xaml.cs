@@ -27,12 +27,13 @@ namespace ProjectClothingStore
         {
             InitializeComponent();
             FrameData.frame = mainFrame;
-            FrameData.frame.Navigate(new ProductsPages());
+            FrameData.frame.Navigate(new AuthorizationPages());
+
         }
 
         private void EnterAuth_Click(object sender, RoutedEventArgs e)
         {
-            FrameData.frame.Navigate(new ProductsPages());
+            FrameData.frame.Navigate(new AuthorizationPages());
         }
     }
 }//Привет еще раз и 3

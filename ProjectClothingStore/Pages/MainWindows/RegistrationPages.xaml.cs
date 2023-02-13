@@ -52,6 +52,11 @@ namespace ProjectClothingStore.Pages.MainWindows
             }
 
             //Валидация поля Email
+            if (TbEmail.Text == "Введите Email")
+            {
+                MessageBox.Show("Поле Email должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
             else if (string.IsNullOrWhiteSpace(TbEmail.Text))
             {
@@ -73,6 +78,11 @@ namespace ProjectClothingStore.Pages.MainWindows
             }
 
             //Валидация поля Фамилия
+            if (TbLastName.Text == "Введите Фамилию")
+            {
+                MessageBox.Show("Поле Фамилия должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             
             else if (string.IsNullOrWhiteSpace(TbLastName.Text))
             {
@@ -112,6 +122,11 @@ namespace ProjectClothingStore.Pages.MainWindows
             }
                
             //Валидация поля Имя
+            if(TbFirsName.Text == "Введите Имя")
+            {
+                MessageBox.Show("Поле Имя должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
             else if (string.IsNullOrWhiteSpace(TbFirsName.Text))
             {
@@ -146,6 +161,11 @@ namespace ProjectClothingStore.Pages.MainWindows
                 return;
             }
             //Валидация поля Отчество
+            if(TbPatronymic.Text == "Введите Отчество")
+            {
+                MessageBox.Show("Поле Отчество должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }    
             else if (string.IsNullOrWhiteSpace(TbPatronymic.Text))
             {
                 MessageBox.Show("Поле Отчество должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -179,6 +199,11 @@ namespace ProjectClothingStore.Pages.MainWindows
                 return;
             }
             //Валидация поля Номер телефона
+            if (TbPhoneNumber.Text == "Введите Номер")
+            {
+                MessageBox.Show("Поле Номер должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }    
             else if (string.IsNullOrWhiteSpace(TbPhoneNumber.Text))
             {
                 MessageBox.Show("Поле Логин должно быть заполнено", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -240,5 +265,90 @@ namespace ProjectClothingStore.Pages.MainWindows
                 TbLogin.Text = "Введите Логин";
             }
         }
+
+        private void TbEmail_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if(TbEmail.Text=="Введите Email")
+            {
+                TbEmail.Text = "";
+            }
+        }
+
+        private void TbEmail_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (TbEmail.Text == "Введите Email")
+            {
+                TbEmail.Text = "";
+            }
+        }
+
+        private void TbLastName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if(TbLastName.Text=="Введите Фамилию")
+            {
+                TbLastName.Text = "";
+            }    
+        }
+        private void TbLastName_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if(TbLastName.Text == "Введите Фамилию")
+            {
+                TbLastName.Text = "";
+            }
+        }
+
+        private void TbFirstName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TbFirsName.Text == "Введите Имя")
+            {
+                TbFirsName.Text = "";
+            }
+        }
+
+
+        private void TbFirstName_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (TbFirsName.Text == "Введите Имя")
+            {
+                TbFirsName.Text = "";
+            }
+        }
+
+        private void TbPatronymic_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TbPatronymic.Text == "Введите Отчество")
+            {
+                TbPatronymic.Text = "";
+            }
+
+        }
+
+        private void TbPatronymic_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (TbPatronymic.Text == "Введите Отчество")
+            {
+                TbPatronymic.Text = "";
+            }
+
+        }
+
+        private void TbPhoneNumber_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TbPhoneNumber.Text == "Введите Номер")
+            {
+                TbPhoneNumber.Text = "";
+            }    
+        }
+
+        private void TbPhoneNumber_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (TbPhoneNumber.Text == "Введите Номер")
+            {
+                TbPhoneNumber.Text = "";
+            }
+        }
+
+
+
     }
 }
