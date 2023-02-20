@@ -29,12 +29,6 @@ namespace ProjectClothingStore.Pages.Buyer
            // GetListProduct();
         }
 
-        //private void GetListProduct() 
-        //{
-        //    List<Product> products = new List<Product>();
-        //    products = EFclass.Contexts.Product.ToList();
 
-        //    LvProduct.ItemsSource = products;   
-        //}
     }
 }

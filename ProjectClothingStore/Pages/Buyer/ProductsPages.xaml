@@ -15,10 +15,6 @@
             <RowDefinition Height="8*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <TextBlock
-            Text="Плитки"
-            HorizontalAlignment="Center"
-            FontSize="20"/>
 
         <ListView
             x:Name="LvProduct"
