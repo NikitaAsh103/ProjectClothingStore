@@ -168,7 +168,7 @@
     <Compile Include="DB\BonusCard.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\Characteristic.cs">
+    <Compile Include="DB\Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Client.cs">

@@ -17,14 +17,21 @@ namespace ProjectClothingStore.DB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.Characteristic = new HashSet<Characteristic>();
+            this.OrderProduct = new HashSet<OrderProduct>();
         }
     
         public int IDProduct { get; set; }
-        public string Name { get; set; }
+        public int IDColor { get; set; }
+        public int IDSize { get; set; }
         public decimal Price { get; set; }
+        public byte[] ProductImage { get; set; }
+        public string Name { get; set; }
+        public int IDCategory { get; set; }
     
+        public virtual Category Category { get; set; }
+        public virtual Color Color { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Characteristic> Characteristic { get; set; }
+        public virtual ICollection<OrderProduct> OrderProduct { get; set; }
+        public virtual Size Size { get; set; }
     }
 }

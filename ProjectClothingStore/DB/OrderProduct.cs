@@ -20,7 +20,7 @@ namespace ProjectClothingStore.DB
         public int IDCharacteristic { get; set; }
         public decimal Price { get; set; }
     
-        public virtual Characteristic Characteristic { get; set; }
         public virtual Order Order { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

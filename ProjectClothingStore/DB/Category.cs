@@ -12,25 +12,18 @@ namespace ProjectClothingStore.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class Characteristic
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Characteristic()
+        public Category()
         {
-            this.OrderProduct = new HashSet<OrderProduct>();
+            this.Product = new HashSet<Product>();
         }
     
-        public int IDCharacteristic { get; set; }
-        public int IDColor { get; set; }
-        public int IDSize { get; set; }
-        public int IDProduct { get; set; }
-        public Nullable<decimal> ChangePrice { get; set; }
-        public byte[] Image { get; set; }
+        public int IDCategory { get; set; }
+        public string TitleCategory { get; set; }
     
-        public virtual Color Color { get; set; }
-        public virtual Product Product { get; set; }
-        public virtual Size Size { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderProduct> OrderProduct { get; set; }
+        public virtual ICollection<Product> Product { get; set; }
     }
 }

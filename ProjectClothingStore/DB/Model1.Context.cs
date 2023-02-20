@@ -28,7 +28,7 @@ namespace ProjectClothingStore.DB
         }
     
         public virtual DbSet<BonusCard> BonusCard { get; set; }
-        public virtual DbSet<Characteristic> Characteristic { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Color> Color { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }

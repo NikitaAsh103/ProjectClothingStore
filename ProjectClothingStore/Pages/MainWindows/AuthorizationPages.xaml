@@ -122,11 +122,11 @@
             Click="BtRegister_Click"
             Style="{StaticResource btStyle}" Background="#334656DA"
                 />
-            <Image Height="40" Width="40" Source="{Icon:MaterialImage Kind=AccountBox}"
+            <Image Height="40" Width="40" 
                Grid.Row="1"
                />
 
-            <Image Height="40" Width="40" Source="{Icon:MaterialImage Kind=Lock}"
+            <Image Height="40" Width="40" 
                Grid.Row="3"/>
 
 
