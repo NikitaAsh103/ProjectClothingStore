@@ -234,10 +234,9 @@
     <Compile Include="Windows\ManagerWindows.xaml.cs">
       <DependentUpon>ManagerWindows.xaml</DependentUpon>
     </Compile>
-    <Page Include="Pages\Buyer\ProductsPages.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="Windows\ProductListWindow.xaml.cs">
+      <DependentUpon>ProductListWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Pages\Buyer\ProfilePages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -310,9 +309,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Pages\Buyer\ProductsPages.xaml.cs">
-      <DependentUpon>ProductsPages.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Buyer\ProfilePages.xaml.cs">
       <DependentUpon>ProfilePages.xaml</DependentUpon>
     </Compile>
@@ -363,6 +359,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Windows\ManagerWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ProductListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

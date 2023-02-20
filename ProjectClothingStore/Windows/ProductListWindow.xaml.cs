@@ -10,23 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 using ProjectClothingStore.ClassHelper;
 using ProjectClothingStore.Windows;
 using ProjectClothingStore.DB;
-using System.Net.NetworkInformation;
 
-
-
-namespace ProjectClothingStore.Pages.Buyer
+namespace ProjectClothingStore.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для ProductsPages.xaml
+    /// Логика взаимодействия для ProductListWindow.xaml
     /// </summary>
-    public partial class ProductsPages : Page
+    public partial class ProductListWindow : Window
     {
-        public ProductsPages()
+        public ProductListWindow()
         {
             InitializeComponent();
 
@@ -66,7 +63,5 @@ namespace ProjectClothingStore.Pages.Buyer
             GetListProduct();
 
         }
-
-        
     }
 }
