@@ -51,6 +51,28 @@
                      Margin="0 0 0 0"
                        HorizontalAlignment="Center"/>
 
+            <TextBlock Text="Выберите цвет товара"
+                       FontSize="18"
+                       Margin="0 30 0 0"
+                       HorizontalAlignment="Center"/>
+            <ComboBox x:Name="CmbColor" 
+                      Width="250"
+                     Height="30"
+                     FontSize="18"
+                     Margin="0 0 0 0"
+                       HorizontalAlignment="Center"/>
+            
+            <TextBlock Text="Выберите размер товара"
+                       FontSize="18"
+                       Margin="0 30 0 0"
+                       HorizontalAlignment="Center"/>
+            <ComboBox x:Name="CmbSize" 
+                      Width="250"
+                     Height="30"
+                     FontSize="18"
+                     Margin="0 0 0 0"
+                       HorizontalAlignment="Center"/>
+
 
             <TextBlock Text="Выберите категорию товара"
                        FontSize="18"

@@ -21,7 +21,7 @@ namespace ProjectClothingStore.DB
         }
     
         public int IDSize { get; set; }
-        public string Size1 { get; set; }
+        public string TitleSize { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Product { get; set; }

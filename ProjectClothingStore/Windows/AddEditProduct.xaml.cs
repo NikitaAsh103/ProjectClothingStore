@@ -34,8 +34,18 @@ namespace ProjectClothingStore.Windows
             InitializeComponent();
 
             CmbCategory.ItemsSource = EFclass.Contexts.Category.ToList();
-            CmbCategory.DisplayMemberPath = "Name";
+            CmbCategory.DisplayMemberPath = "TitleCategory";
             CmbCategory.SelectedIndex = 0;
+
+            CmbColor.ItemsSource = EFclass.Contexts.Color.ToList();
+            CmbColor.DisplayMemberPath = "TitleColor";
+            CmbColor.SelectedIndex = 0;
+
+            CmbSize.ItemsSource = EFclass.Contexts.Size.ToList();
+            CmbSize.DisplayMemberPath = "TitleSize";
+            CmbSize.SelectedIndex = 0;
+
+
         }
 
         public AddEditProduct(Product product)
@@ -45,8 +55,16 @@ namespace ProjectClothingStore.Windows
             // Заполнение комбобокса
 
             CmbCategory.ItemsSource = EFclass.Contexts.Category.ToList();
-            CmbCategory.DisplayMemberPath = "Name";
+            CmbCategory.DisplayMemberPath = "TitleCategory";
             CmbCategory.SelectedIndex = 0;
+
+            CmbColor.ItemsSource = EFclass.Contexts.Color.ToList();
+            CmbColor.DisplayMemberPath = "TitleColor";
+            CmbColor.SelectedIndex = 0;
+
+            CmbSize.ItemsSource = EFclass.Contexts.Size.ToList();
+            CmbSize.DisplayMemberPath = "TitleSize";
+            CmbSize.SelectedIndex = 0;
 
             // заполнение полей значениями 
             TbName.Text = product.Name;
