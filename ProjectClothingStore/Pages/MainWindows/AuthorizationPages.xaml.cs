@@ -1,4 +1,5 @@
 ﻿using ProjectClothingStore.ClassHelper;
+using ProjectClothingStore.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,13 +37,66 @@ namespace ProjectClothingStore.Pages.MainWindows
             var userAuth = Contexts.User.ToList()
                .Where(i => i.Login == TbLogin.Text && i.Password == PbPassword.Password).FirstOrDefault();
 
+            // проверка на работника
             if (userAuth != null)
             {
-                MessageBox.Show("OK");
+                // сохранияем данные входа
+                ClassHelper.UserDataClass.User = userAuth;
+
+                var emplAuth = Contexts.Employee.Where(i => i.IDUser == userAuth.IDUser).FirstOrDefault();
+                if (emplAuth != null)
+                {
+                    
+
+                    // сохраняем данные входа для Сотрудника
+
+                    ClassHelper.UserDataClass.Employee = emplAuth;
+
+                    // проверка роли 
+
+                    switch (emplAuth.IDPosition)
+                    {
+                        case 1:
+                            // переход на страницу директора
+                            DirectorWindows directorWindow = new DirectorWindows();
+                            var mainWindow = new MainWindow();
+                            mainWindow.Close();
+                            directorWindow.Show();
+                            
+                            break;
+
+                        case 2:
+                            // переход на страницу администратора
+                            break;
+                        case 3:
+                            // переход на страницу продавца
+                            ProductListWindow productWindow = new ProductListWindow();
+                            productWindow.Show();
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+                else
+                {
+                    // Client
+
+                    // сохраняем клиента
+                    //ClassHelper.UserDataClass.Client = userAuth;
+
+
+                    ProductListWindow productListWindow = new ProductListWindow();
+                    productListWindow.Show();
+                    
+
+                }
+
+
             }
             else
             {
-                MessageBox.Show("Такого пользователя нет", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Пользователь не найден", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
