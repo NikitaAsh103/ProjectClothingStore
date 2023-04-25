@@ -12,18 +12,24 @@ namespace ProjectClothingStore.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class BonusCard
+    public partial class ClothingBarn
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public BonusCard()
+        public ClothingBarn()
         {
-            this.Client = new HashSet<Client>();
+            this.OrderProduct = new HashSet<OrderProduct>();
         }
     
-        public int IDBonusCard { get; set; }
-        public decimal NumberOfBonuses { get; set; }
+        public int IDClothingBarn { get; set; }
+        public int IDColor { get; set; }
+        public int IDSize { get; set; }
+        public int IDProduct { get; set; }
+        public Nullable<int> Quantity { get; set; }
     
+        public virtual Color Color { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual Size Size { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Client> Client { get; set; }
+        public virtual ICollection<OrderProduct> OrderProduct { get; set; }
     }
 }

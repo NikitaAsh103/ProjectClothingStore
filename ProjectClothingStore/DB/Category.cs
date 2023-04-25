@@ -18,12 +18,15 @@ namespace ProjectClothingStore.DB
         public Category()
         {
             this.Product = new HashSet<Product>();
+            this.Size = new HashSet<Size>();
         }
     
         public int IDCategory { get; set; }
-        public string TitleCategory { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Product { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Size> Size { get; set; }
     }
 }

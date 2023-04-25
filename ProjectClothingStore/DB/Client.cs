@@ -21,10 +21,8 @@ namespace ProjectClothingStore.DB
         }
     
         public int IDClient { get; set; }
-        public Nullable<int> IDBonusCard { get; set; }
         public int IDUser { get; set; }
     
-        public virtual BonusCard BonusCard { get; set; }
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }

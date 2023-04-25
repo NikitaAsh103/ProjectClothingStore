@@ -17,13 +17,13 @@ namespace ProjectClothingStore.DB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Color()
         {
-            this.Product = new HashSet<Product>();
+            this.ClothingBarn = new HashSet<ClothingBarn>();
         }
     
         public int IDColor { get; set; }
         public string TitleColor { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Product { get; set; }
+        public virtual ICollection<ClothingBarn> ClothingBarn { get; set; }
     }
 }

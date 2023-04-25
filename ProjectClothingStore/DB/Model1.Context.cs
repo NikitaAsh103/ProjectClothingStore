@@ -27,9 +27,9 @@ namespace ProjectClothingStore.DB
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<BonusCard> BonusCard { get; set; }
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Client> Client { get; set; }
+        public virtual DbSet<ClothingBarn> ClothingBarn { get; set; }
         public virtual DbSet<Color> Color { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
@@ -41,8 +41,7 @@ namespace ProjectClothingStore.DB
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
-        public static object Contexts { get; internal set; }
-
+    
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
             var diagramnameParameter = diagramname != null ?

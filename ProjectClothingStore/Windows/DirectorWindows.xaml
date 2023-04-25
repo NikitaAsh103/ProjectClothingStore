@@ -17,12 +17,12 @@
                 Height="71" Width="215"
                 Click="btnEmployee_Click"/>
         <ListView x:Name="lvEmployee"
-                  Width="300"
-                   d:ItemsSource="{d:SampleData ItemCount=5}" Margin="2,-3,498,3">
+                  Width="400"
+                   d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,400,0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="idEmployee" Width="30" DisplayMemberBinding="{Binding IDEmployee}"/>
-                    <GridViewColumn Header="IDPosition" Width="150" DisplayMemberBinding="{Binding IDPosition}"/>
+                    <GridViewColumn Header="idEmployee" Width="100" DisplayMemberBinding="{Binding IDEmployee}"/>
+                    <GridViewColumn Header="IDPosition" Width="150" DisplayMemberBinding="{Binding Position.PositionName}"/>
                     <GridViewColumn Header="IDUser" Width="150" DisplayMemberBinding="{Binding IDUser}"/>
                     <!--<GridViewColumn Header="Должность" Width="150" DisplayMemberBinding="{Binding Role.NameRole}"/>-->
                 </GridView>

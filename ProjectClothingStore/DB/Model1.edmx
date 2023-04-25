@@ -5,27 +5,29 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище ClothingStorePanBabModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="BonusCard">
-          <Key>
-            <PropertyRef Name="IDBonusCard" />
-          </Key>
-          <Property Name="IDBonusCard" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NumberOfBonuses" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="IDCategory" />
           </Key>
           <Property Name="IDCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TitleCategory" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="IDClient" />
           </Key>
           <Property Name="IDClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IDBonusCard" Type="int" />
           <Property Name="IDUser" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClothingBarn">
+          <Key>
+            <PropertyRef Name="IDClothingBarn" />
+          </Key>
+          <Property Name="IDClothingBarn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDColor" Type="int" Nullable="false" />
+          <Property Name="IDSize" Type="int" Nullable="false" />
+          <Property Name="IDProduct" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
         </EntityType>
         <EntityType Name="Color">
           <Key>
@@ -65,7 +67,7 @@
           <Property Name="IDOrdProd" Type="int" Nullable="false" />
           <Property Name="IDOrder" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
-          <Property Name="IDCharacteristic" Type="int" Nullable="false" />
+          <Property Name="IDClothingBarn" Type="int" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Position">
@@ -80,19 +82,18 @@
             <PropertyRef Name="IDProduct" />
           </Key>
           <Property Name="IDProduct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IDColor" Type="int" Nullable="false" />
-          <Property Name="IDSize" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="ProductImage" Type="varbinary(max)" />
-          <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="IDCategory" Type="int" Nullable="false" />
+          <Property Name="ProductImage" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Size">
           <Key>
             <PropertyRef Name="IDSize" />
           </Key>
           <Property Name="IDSize" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TitleSize" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Size" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IDCategory" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -121,44 +122,44 @@
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="PhoneNumber" Type="nchar" MaxLength="12" Nullable="false" />
-          <Property Name="Birthday" Type="datetime" Nullable="false" />
+          <Property Name="Birthday" Type="date" Nullable="false" />
           <Property Name="IDGender" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Characteristic_Color">
           <End Role="Color" Type="Self.Color" Multiplicity="1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <End Role="ClothingBarn" Type="Self.ClothingBarn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Color">
               <PropertyRef Name="IDColor" />
             </Principal>
-            <Dependent Role="Product">
+            <Dependent Role="ClothingBarn">
               <PropertyRef Name="IDColor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Characteristic_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ClothingBarn" Type="Self.ClothingBarn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="IDProduct" />
+            </Principal>
+            <Dependent Role="ClothingBarn">
+              <PropertyRef Name="IDProduct" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Characteristic_Size">
           <End Role="Size" Type="Self.Size" Multiplicity="1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <End Role="ClothingBarn" Type="Self.ClothingBarn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Size">
               <PropertyRef Name="IDSize" />
             </Principal>
-            <Dependent Role="Product">
+            <Dependent Role="ClothingBarn">
               <PropertyRef Name="IDSize" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Client_BonusCard">
-          <End Role="BonusCard" Type="Self.BonusCard" Multiplicity="0..1" />
-          <End Role="Client" Type="Self.Client" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BonusCard">
-              <PropertyRef Name="IDBonusCard" />
-            </Principal>
-            <Dependent Role="Client">
-              <PropertyRef Name="IDBonusCard" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -234,15 +235,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderProduct_Characteristic1">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+        <Association Name="FK_OrderProduct_ClothingBarn">
+          <End Role="ClothingBarn" Type="Self.ClothingBarn" Multiplicity="1" />
           <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="IDProduct" />
+            <Principal Role="ClothingBarn">
+              <PropertyRef Name="IDClothingBarn" />
             </Principal>
             <Dependent Role="OrderProduct">
-              <PropertyRef Name="IDCharacteristic" />
+              <PropertyRef Name="IDClothingBarn" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -266,6 +267,18 @@
               <PropertyRef Name="IDCategory" />
             </Principal>
             <Dependent Role="Product">
+              <PropertyRef Name="IDCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Size_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Size" Type="Self.Size" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="IDCategory" />
+            </Principal>
+            <Dependent Role="Size">
               <PropertyRef Name="IDCategory" />
             </Dependent>
           </ReferentialConstraint>
@@ -314,9 +327,9 @@
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="Хранилище ClothingStorePanBabModelContainer">
-          <EntitySet Name="BonusCard" EntityType="Self.BonusCard" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClothingBarn" EntityType="Self.ClothingBarn" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
@@ -330,15 +343,15 @@
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Characteristic_Color" Association="Self.FK_Characteristic_Color">
             <End Role="Color" EntitySet="Color" />
+            <End Role="ClothingBarn" EntitySet="ClothingBarn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Characteristic_Product" Association="Self.FK_Characteristic_Product">
             <End Role="Product" EntitySet="Product" />
+            <End Role="ClothingBarn" EntitySet="ClothingBarn" />
           </AssociationSet>
           <AssociationSet Name="FK_Characteristic_Size" Association="Self.FK_Characteristic_Size">
             <End Role="Size" EntitySet="Size" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Client_BonusCard" Association="Self.FK_Client_BonusCard">
-            <End Role="BonusCard" EntitySet="BonusCard" />
-            <End Role="Client" EntitySet="Client" />
+            <End Role="ClothingBarn" EntitySet="ClothingBarn" />
           </AssociationSet>
           <AssociationSet Name="FK_Client_User" Association="Self.FK_Client_User">
             <End Role="User" EntitySet="User" />
@@ -364,8 +377,8 @@
             <End Role="Status" EntitySet="Status" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderProduct_Characteristic1" Association="Self.FK_OrderProduct_Characteristic1">
-            <End Role="Product" EntitySet="Product" />
+          <AssociationSet Name="FK_OrderProduct_ClothingBarn" Association="Self.FK_OrderProduct_ClothingBarn">
+            <End Role="ClothingBarn" EntitySet="ClothingBarn" />
             <End Role="OrderProduct" EntitySet="OrderProduct" />
           </AssociationSet>
           <AssociationSet Name="FK_OrderProduct_Order" Association="Self.FK_OrderProduct_Order">
@@ -375,6 +388,10 @@
           <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Size_Category" Association="Self.FK_Size_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Size" EntitySet="Size" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Gender" Association="Self.FK_User_Gender">
             <End Role="Gender" EntitySet="Gender" />
@@ -386,32 +403,37 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ClothingStorePanBabModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="BonusCard">
-          <Key>
-            <PropertyRef Name="IDBonusCard" />
-          </Key>
-          <Property Name="IDBonusCard" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NumberOfBonuses" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_Client_BonusCard" FromRole="BonusCard" ToRole="Client" />
-        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="IDCategory" />
           </Key>
           <Property Name="IDCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TitleCategory" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Product_Category" FromRole="Category" ToRole="Product" />
+          <NavigationProperty Name="Size" Relationship="Self.FK_Size_Category" FromRole="Category" ToRole="Size" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="IDClient" />
           </Key>
           <Property Name="IDClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IDBonusCard" Type="Int32" />
           <Property Name="IDUser" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BonusCard" Relationship="Self.FK_Client_BonusCard" FromRole="Client" ToRole="BonusCard" />
           <NavigationProperty Name="User" Relationship="Self.FK_Client_User" FromRole="Client" ToRole="User" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_Client" FromRole="Client" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="ClothingBarn">
+          <Key>
+            <PropertyRef Name="IDClothingBarn" />
+          </Key>
+          <Property Name="IDClothingBarn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDColor" Type="Int32" Nullable="false" />
+          <Property Name="IDSize" Type="Int32" Nullable="false" />
+          <Property Name="IDProduct" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <NavigationProperty Name="Color" Relationship="Self.FK_Characteristic_Color" FromRole="ClothingBarn" ToRole="Color" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Characteristic_Product" FromRole="ClothingBarn" ToRole="Product" />
+          <NavigationProperty Name="Size" Relationship="Self.FK_Characteristic_Size" FromRole="ClothingBarn" ToRole="Size" />
+          <NavigationProperty Name="OrderProduct" Relationship="Self.FK_OrderProduct_ClothingBarn" FromRole="ClothingBarn" ToRole="OrderProduct" />
         </EntityType>
         <EntityType Name="Color">
           <Key>
@@ -419,7 +441,7 @@
           </Key>
           <Property Name="IDColor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TitleColor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_Characteristic_Color" FromRole="Color" ToRole="Product" />
+          <NavigationProperty Name="ClothingBarn" Relationship="Self.FK_Characteristic_Color" FromRole="Color" ToRole="ClothingBarn" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -460,10 +482,10 @@
           <Property Name="IDOrdProd" Type="Int32" Nullable="false" />
           <Property Name="IDOrder" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="IDCharacteristic" Type="Int32" Nullable="false" />
+          <Property Name="IDClothingBarn" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="ClothingBarn" Relationship="Self.FK_OrderProduct_ClothingBarn" FromRole="OrderProduct" ToRole="ClothingBarn" />
           <NavigationProperty Name="Order" Relationship="Self.FK_OrderProduct_Order" FromRole="OrderProduct" ToRole="Order" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_OrderProduct_Characteristic1" FromRole="OrderProduct" ToRole="Product" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -478,24 +500,22 @@
             <PropertyRef Name="IDProduct" />
           </Key>
           <Property Name="IDProduct" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IDColor" Type="Int32" Nullable="false" />
-          <Property Name="IDSize" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="ProductImage" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IDCategory" Type="Int32" Nullable="false" />
+          <Property Name="ProductImage" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="Category" />
-          <NavigationProperty Name="Color" Relationship="Self.FK_Characteristic_Color" FromRole="Product" ToRole="Color" />
-          <NavigationProperty Name="OrderProduct" Relationship="Self.FK_OrderProduct_Characteristic1" FromRole="Product" ToRole="OrderProduct" />
-          <NavigationProperty Name="Size" Relationship="Self.FK_Characteristic_Size" FromRole="Product" ToRole="Size" />
+          <NavigationProperty Name="ClothingBarn" Relationship="Self.FK_Characteristic_Product" FromRole="Product" ToRole="ClothingBarn" />
         </EntityType>
         <EntityType Name="Size">
           <Key>
             <PropertyRef Name="IDSize" />
           </Key>
           <Property Name="IDSize" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TitleSize" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_Characteristic_Size" FromRole="Size" ToRole="Product" />
+          <Property Name="Size1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDCategory" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Size_Category" FromRole="Size" ToRole="Category" />
+          <NavigationProperty Name="ClothingBarn" Relationship="Self.FK_Characteristic_Size" FromRole="Size" ToRole="ClothingBarn" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -525,26 +545,14 @@
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="PhoneNumber" Type="String" MaxLength="12" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IDGender" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Client_User" FromRole="User" ToRole="Client" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_User" FromRole="User" ToRole="Employee" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_User_Gender" FromRole="User" ToRole="Gender" />
         </EntityType>
-        <Association Name="FK_Client_BonusCard">
-          <End Role="BonusCard" Type="Self.BonusCard" Multiplicity="0..1" />
-          <End Role="Client" Type="Self.Client" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BonusCard">
-              <PropertyRef Name="IDBonusCard" />
-            </Principal>
-            <Dependent Role="Client">
-              <PropertyRef Name="IDBonusCard" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Product_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
@@ -553,6 +561,18 @@
               <PropertyRef Name="IDCategory" />
             </Principal>
             <Dependent Role="Product">
+              <PropertyRef Name="IDCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Size_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Size" Type="Self.Size" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="IDCategory" />
+            </Principal>
+            <Dependent Role="Size">
               <PropertyRef Name="IDCategory" />
             </Dependent>
           </ReferentialConstraint>
@@ -583,13 +603,49 @@
         </Association>
         <Association Name="FK_Characteristic_Color">
           <End Role="Color" Type="Self.Color" Multiplicity="1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <End Role="ClothingBarn" Type="Self.ClothingBarn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Color">
               <PropertyRef Name="IDColor" />
             </Principal>
-            <Dependent Role="Product">
+            <Dependent Role="ClothingBarn">
               <PropertyRef Name="IDColor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Characteristic_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ClothingBarn" Type="Self.ClothingBarn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="IDProduct" />
+            </Principal>
+            <Dependent Role="ClothingBarn">
+              <PropertyRef Name="IDProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Characteristic_Size">
+          <End Role="Size" Type="Self.Size" Multiplicity="1" />
+          <End Role="ClothingBarn" Type="Self.ClothingBarn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Size">
+              <PropertyRef Name="IDSize" />
+            </Principal>
+            <Dependent Role="ClothingBarn">
+              <PropertyRef Name="IDSize" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderProduct_ClothingBarn">
+          <End Role="ClothingBarn" Type="Self.ClothingBarn" Multiplicity="1" />
+          <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClothingBarn">
+              <PropertyRef Name="IDClothingBarn" />
+            </Principal>
+            <Dependent Role="OrderProduct">
+              <PropertyRef Name="IDClothingBarn" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -665,34 +721,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderProduct_Characteristic1">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="IDProduct" />
-            </Principal>
-            <Dependent Role="OrderProduct">
-              <PropertyRef Name="IDCharacteristic" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Characteristic_Size">
-          <End Role="Size" Type="Self.Size" Multiplicity="1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Size">
-              <PropertyRef Name="IDSize" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="IDSize" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="BonusCard" EntityType="Self.BonusCard" />
           <EntitySet Name="Category" EntityType="Self.Category" />
           <EntitySet Name="Client" EntityType="Self.Client" />
+          <EntitySet Name="ClothingBarn" EntityType="Self.ClothingBarn" />
           <EntitySet Name="Color" EntityType="Self.Color" />
           <EntitySet Name="Employee" EntityType="Self.Employee" />
           <EntitySet Name="Gender" EntityType="Self.Gender" />
@@ -704,13 +736,13 @@
           <EntitySet Name="Status" EntityType="Self.Status" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <AssociationSet Name="FK_Client_BonusCard" Association="Self.FK_Client_BonusCard">
-            <End Role="BonusCard" EntitySet="BonusCard" />
-            <End Role="Client" EntitySet="Client" />
-          </AssociationSet>
           <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Size_Category" Association="Self.FK_Size_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Size" EntitySet="Size" />
           </AssociationSet>
           <AssociationSet Name="FK_Client_User" Association="Self.FK_Client_User">
             <End Role="User" EntitySet="User" />
@@ -722,7 +754,19 @@
           </AssociationSet>
           <AssociationSet Name="FK_Characteristic_Color" Association="Self.FK_Characteristic_Color">
             <End Role="Color" EntitySet="Color" />
+            <End Role="ClothingBarn" EntitySet="ClothingBarn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Characteristic_Product" Association="Self.FK_Characteristic_Product">
             <End Role="Product" EntitySet="Product" />
+            <End Role="ClothingBarn" EntitySet="ClothingBarn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Characteristic_Size" Association="Self.FK_Characteristic_Size">
+            <End Role="Size" EntitySet="Size" />
+            <End Role="ClothingBarn" EntitySet="ClothingBarn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderProduct_ClothingBarn" Association="Self.FK_OrderProduct_ClothingBarn">
+            <End Role="ClothingBarn" EntitySet="ClothingBarn" />
+            <End Role="OrderProduct" EntitySet="OrderProduct" />
           </AssociationSet>
           <AssociationSet Name="FK_Employee_Position1" Association="Self.FK_Employee_Position1">
             <End Role="Position" EntitySet="Position" />
@@ -747,14 +791,6 @@
           <AssociationSet Name="FK_OrderProduct_Order" Association="Self.FK_OrderProduct_Order">
             <End Role="Order" EntitySet="Order" />
             <End Role="OrderProduct" EntitySet="OrderProduct" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderProduct_Characteristic1" Association="Self.FK_OrderProduct_Characteristic1">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="OrderProduct" EntitySet="OrderProduct" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Characteristic_Size" Association="Self.FK_Characteristic_Size">
-            <End Role="Size" EntitySet="Size" />
-            <End Role="Product" EntitySet="Product" />
           </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -804,19 +840,11 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище ClothingStorePanBabModelContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="BonusCard">
-            <EntityTypeMapping TypeName="ClothingStorePanBabModel.BonusCard">
-              <MappingFragment StoreEntitySet="BonusCard">
-                <ScalarProperty Name="IDBonusCard" ColumnName="IDBonusCard" />
-                <ScalarProperty Name="NumberOfBonuses" ColumnName="NumberOfBonuses" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Category">
             <EntityTypeMapping TypeName="ClothingStorePanBabModel.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="IDCategory" ColumnName="IDCategory" />
-                <ScalarProperty Name="TitleCategory" ColumnName="TitleCategory" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -824,8 +852,18 @@
             <EntityTypeMapping TypeName="ClothingStorePanBabModel.Client">
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="IDClient" ColumnName="IDClient" />
-                <ScalarProperty Name="IDBonusCard" ColumnName="IDBonusCard" />
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClothingBarn">
+            <EntityTypeMapping TypeName="ClothingStorePanBabModel.ClothingBarn">
+              <MappingFragment StoreEntitySet="ClothingBarn">
+                <ScalarProperty Name="IDClothingBarn" ColumnName="IDClothingBarn" />
+                <ScalarProperty Name="IDColor" ColumnName="IDColor" />
+                <ScalarProperty Name="IDSize" ColumnName="IDSize" />
+                <ScalarProperty Name="IDProduct" ColumnName="IDProduct" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -870,7 +908,7 @@
                 <ScalarProperty Name="IDOrdProd" ColumnName="IDOrdProd" />
                 <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="IDCharacteristic" ColumnName="IDCharacteristic" />
+                <ScalarProperty Name="IDClothingBarn" ColumnName="IDClothingBarn" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -887,12 +925,10 @@
             <EntityTypeMapping TypeName="ClothingStorePanBabModel.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="IDProduct" ColumnName="IDProduct" />
-                <ScalarProperty Name="IDColor" ColumnName="IDColor" />
-                <ScalarProperty Name="IDSize" ColumnName="IDSize" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="IDCategory" ColumnName="IDCategory" />
+                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -900,7 +936,8 @@
             <EntityTypeMapping TypeName="ClothingStorePanBabModel.Size">
               <MappingFragment StoreEntitySet="Size">
                 <ScalarProperty Name="IDSize" ColumnName="IDSize" />
-                <ScalarProperty Name="TitleSize" ColumnName="TitleSize" />
+                <ScalarProperty Name="Size1" ColumnName="Size" />
+                <ScalarProperty Name="IDCategory" ColumnName="IDCategory" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

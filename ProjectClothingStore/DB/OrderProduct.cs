@@ -17,10 +17,10 @@ namespace ProjectClothingStore.DB
         public int IDOrdProd { get; set; }
         public int IDOrder { get; set; }
         public int Quantity { get; set; }
-        public int IDCharacteristic { get; set; }
+        public int IDClothingBarn { get; set; }
         public decimal Price { get; set; }
     
+        public virtual ClothingBarn ClothingBarn { get; set; }
         public virtual Order Order { get; set; }
-        public virtual Product Product { get; set; }
     }
 }
