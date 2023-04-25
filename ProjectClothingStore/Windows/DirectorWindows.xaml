@@ -7,7 +7,26 @@
         mc:Ignorable="d"
         Title="DirectorWindows" Height="450" Width="800">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="302,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="87" Width="228"><Run Language="ru-ru" Text="Ты директор!!!!"/></TextBlock>
-
+        <TextBlock HorizontalAlignment="Left" Margin="549,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="87" Width="228"><Run Language="ru-ru" Text="Ты директор!!!!"/></TextBlock>
+        <Button x:Name="btnEmployee" 
+                Content="Сотрудники" 
+                HorizontalAlignment="Left" 
+                Margin="494,240,0,0" 
+                VerticalAlignment="Top" 
+                RenderTransformOrigin="-1.277,-0.3" 
+                Height="71" Width="215"
+                Click="btnEmployee_Click"/>
+        <ListView x:Name="lvEmployee"
+                  Width="300"
+                   d:ItemsSource="{d:SampleData ItemCount=5}" Margin="2,-3,498,3">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="idEmployee" Width="30" DisplayMemberBinding="{Binding IDEmployee}"/>
+                    <GridViewColumn Header="IDPosition" Width="150" DisplayMemberBinding="{Binding IDPosition}"/>
+                    <GridViewColumn Header="IDUser" Width="150" DisplayMemberBinding="{Binding IDUser}"/>
+                    <!--<GridViewColumn Header="Должность" Width="150" DisplayMemberBinding="{Binding Role.NameRole}"/>-->
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectClothingStore.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using ProjectClothingStore.ClassHelper;
+using ProjectClothingStore.Windows;
+
+
+
 namespace ProjectClothingStore.Windows
 {
     /// <summary>
@@ -19,9 +25,16 @@ namespace ProjectClothingStore.Windows
     /// </summary>
     public partial class DirectorWindows : Window
     {
+        List<Employee> employees = new List<Employee>();
         public DirectorWindows()
         {
             InitializeComponent();
+            lvEmployee.ItemsSource = null;
+        }
+        
+        private void btnEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            lvEmployee.ItemsSource = EFclass.Contexts.Employee.ToList();
         }
     }
 }
