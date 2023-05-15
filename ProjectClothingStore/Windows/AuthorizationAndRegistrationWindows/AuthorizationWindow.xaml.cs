@@ -1,5 +1,4 @@
 ﻿using ProjectClothingStore.ClassHelper;
-using ProjectClothingStore.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,23 +12,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static ProjectClothingStore.ClassHelper.EFclass;
 
-
-
-namespace ProjectClothingStore.Pages.MainWindows
+namespace ProjectClothingStore.Windows.AuthorizationAndRegistrationWindows
 {
     /// <summary>
-    /// Логика взаимодействия для AuthorizationPages.xaml
+    /// Логика взаимодействия для AuthorizationWindow.xaml
     /// </summary>
-    public partial class AuthorizationPages : Page
+    public partial class AuthorizationWindow : Window
     {
-        public AuthorizationPages()
+        public AuthorizationWindow()
         {
             InitializeComponent();
-            
         }
 
         private void BtEnter_Click(object sender, RoutedEventArgs e)
@@ -46,7 +41,7 @@ namespace ProjectClothingStore.Pages.MainWindows
                 var emplAuth = Contexts.Employee.Where(i => i.IDUser == userAuth.IDUser).FirstOrDefault();
                 if (emplAuth != null)
                 {
-                    
+
 
                     // сохраняем данные входа для Сотрудника
 
@@ -62,7 +57,7 @@ namespace ProjectClothingStore.Pages.MainWindows
                             var mainWindow = new MainWindow();
                             mainWindow.Close();
                             directorWindow.Show();
-                            
+
                             break;
 
                         case 2:
@@ -88,7 +83,7 @@ namespace ProjectClothingStore.Pages.MainWindows
 
                     ProductListWindow productListWindow = new ProductListWindow();
                     productListWindow.Show();
-                    
+
 
                 }
 
@@ -102,7 +97,9 @@ namespace ProjectClothingStore.Pages.MainWindows
 
         private void BtRegister_Click(object sender, RoutedEventArgs e)
         {
-            FrameData.frame.Navigate(new RegistrationPages());
+            RegistrationWindow registrationwindow = new RegistrationWindow();
+            registrationwindow.Show();
+            this.Close();
         }
     }
 }

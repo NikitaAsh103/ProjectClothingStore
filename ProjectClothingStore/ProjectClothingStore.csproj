@@ -235,6 +235,12 @@
     <Compile Include="Windows\AddEditProduct.xaml.cs">
       <DependentUpon>AddEditProduct.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AuthorizationAndRegistrationWindows\AuthorizationWindow.xaml.cs">
+      <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AuthorizationAndRegistrationWindows\RegistrationWindow.xaml.cs">
+      <DependentUpon>RegistrationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ManagerWindows.xaml.cs">
       <DependentUpon>ManagerWindows.xaml</DependentUpon>
     </Compile>
@@ -273,14 +279,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\MainWindows\AuthorizationPages.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\MainWindows\RegistrationPages.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\Manager\AddBuyersPages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -298,6 +296,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AddEditProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AuthorizationAndRegistrationWindows\AuthorizationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AuthorizationAndRegistrationWindows\RegistrationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -340,12 +346,6 @@
     </Compile>
     <Compile Include="Pages\Director\ManagementProductPages.xaml.cs">
       <DependentUpon>ManagementProductPages.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\MainWindows\AuthorizationPages.xaml.cs">
-      <DependentUpon>AuthorizationPages.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\MainWindows\RegistrationPages.xaml.cs">
-      <DependentUpon>RegistrationPages.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Manager\AddBuyersPages.xaml.cs">
       <DependentUpon>AddBuyersPages.xaml</DependentUpon>

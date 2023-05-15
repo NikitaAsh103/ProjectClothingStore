@@ -34,7 +34,7 @@ namespace ProjectClothingStore.Windows
             InitializeComponent();
 
             CmbCategory.ItemsSource = EFclass.Contexts.Category.ToList();
-            CmbCategory.DisplayMemberPath = "TitleCategory";
+            CmbCategory.DisplayMemberPath = "Name";
             CmbCategory.SelectedIndex = 0;
 
             CmbColor.ItemsSource = EFclass.Contexts.Color.ToList();
@@ -42,7 +42,7 @@ namespace ProjectClothingStore.Windows
             CmbColor.SelectedIndex = 0;
 
             CmbSize.ItemsSource = EFclass.Contexts.Size.ToList();
-            CmbSize.DisplayMemberPath = "TitleSize";
+            CmbSize.DisplayMemberPath = "Size1";
             CmbSize.SelectedIndex = 0;
 
 

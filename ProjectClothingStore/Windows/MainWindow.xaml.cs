@@ -1,6 +1,5 @@
 ﻿using ProjectClothingStore.ClassHelper;
 using ProjectClothingStore.Pages.Buyer;
-using ProjectClothingStore.Pages.MainWindows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,14 +25,13 @@ namespace ProjectClothingStore
         public MainWindow()
         {
             InitializeComponent();
-            FrameData.frame = mainFrame;
-            FrameData.frame.Navigate(new AuthorizationPages());
+           
 
         }
 
         private void EnterAuth_Click(object sender, RoutedEventArgs e)
         {
-            FrameData.frame.Navigate(new AuthorizationPages());
+            
         }
     }
 }//Привет еще раз и 3

@@ -1,17 +1,11 @@
-﻿<Page x:Class="ProjectClothingStore.Pages.MainWindows.RegistrationPages"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:ProjectClothingStore.Pages.MainWindows"
-      mc:Ignorable="d" 
-      
-      d:DesignHeight="750" 
-      d:DesignWidth="600"
-      Title="RegistrationPages">
-
-
-
+﻿<Window x:Class="ProjectClothingStore.Windows.AuthorizationAndRegistrationWindows.RegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectClothingStore.Windows.AuthorizationAndRegistrationWindows"
+        mc:Ignorable="d"
+        Title="RegistrationWindow" Height="750" Width="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -26,7 +20,7 @@
         <Grid Grid.Row="1" Grid.Column="1" Height="700" Width="500"
                   >
             <Grid Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="0,10,10,10" Background="White">
-                
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
@@ -195,7 +189,7 @@
                  Grid.Row="8"
                  VerticalAlignment="Center"
                  FontFamily="Comic Sans MS"/>
-                
+
                 <DatePicker 
                  Name="DPDateOfBirthday" 
                  BorderThickness="0"
@@ -216,8 +210,8 @@
                  VerticalAlignment="Center"
                  FontFamily="Comic Sans MS"
                  Margin="20,15,0,14"/>
-                
-                
+
+
                 <ComboBox
                  x:Name="CmbGender"
                  Width="100"
@@ -225,7 +219,7 @@
                  Grid.Column="1"
                  Grid.Row="7"/>
 
-                
+
                 <TextBlock 
                  Text="Пароль:" 
                  FontSize="25" 
@@ -257,7 +251,7 @@
                 Height="50"
                 FontSize="30"
                 Style="{StaticResource btStyle}"
-                    Click="BtnRegistration_Click"
+                Click="BtnRegistration_Click"
                 />
 
 
@@ -271,6 +265,4 @@
 
 
     </Grid>
-
-</Page>
-
+</Window>
