@@ -29,6 +29,10 @@ namespace ProjectClothingStore.Windows
 
             GetListProduct();
         }
+        private void GetCountCartProduct()
+        {
+            TxtCartCount.Text = ClassHelper.CartClass.products.Count.ToString();
+        }
 
         private void GetListProduct()
         {
@@ -63,5 +67,30 @@ namespace ProjectClothingStore.Windows
             GetListProduct();
 
         }
+
+      
+
+        private void BtnGoCart_Click(object sender, RoutedEventArgs e)
+        {
+            ShoppingCartWindow shoppingCartWindow = new ShoppingCartWindow();
+            shoppingCartWindow.Show();
+        }
+
+        private void BtnCart_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button == null)
+            {
+                return;
+            }
+
+            Product selectedProduct = button.DataContext as Product;
+
+            ClassHelper.CartClass.products.Add(selectedProduct);
+
+            GetCountCartProduct();
+        }
+
+        
     }
 }

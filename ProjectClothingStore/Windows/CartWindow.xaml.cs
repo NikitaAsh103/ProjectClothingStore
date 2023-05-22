@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProjectClothingStore.Pages.Director
+namespace ProjectClothingStore.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для EditEmployeePages.xaml
+    /// Логика взаимодействия для CartWindow.xaml
     /// </summary>
-    public partial class EditEmployeePages : Page
+    public partial class CartWindow : Window
     {
-        public EditEmployeePages()
+        public CartWindow()
         {
             InitializeComponent();
         }

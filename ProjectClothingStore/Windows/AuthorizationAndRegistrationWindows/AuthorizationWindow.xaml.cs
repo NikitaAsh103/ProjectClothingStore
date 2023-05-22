@@ -55,7 +55,7 @@ namespace ProjectClothingStore.Windows.AuthorizationAndRegistrationWindows
                             // переход на страницу директора
                             DirectorWindows directorWindow = new DirectorWindows();
                             var mainWindow = new MainWindow();
-                            mainWindow.Close();
+                            this.Close();
                             directorWindow.Show();
 
                             break;
@@ -67,6 +67,7 @@ namespace ProjectClothingStore.Windows.AuthorizationAndRegistrationWindows
                             // переход на страницу продавца
                             ProductListWindow productWindow = new ProductListWindow();
                             productWindow.Show();
+                            this.Close();
                             break;
                         default:
                             break;
@@ -83,6 +84,7 @@ namespace ProjectClothingStore.Windows.AuthorizationAndRegistrationWindows
 
                     ProductListWindow productListWindow = new ProductListWindow();
                     productListWindow.Show();
+                    this.Close();
 
 
                 }

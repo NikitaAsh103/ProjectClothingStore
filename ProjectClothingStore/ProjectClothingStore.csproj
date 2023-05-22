@@ -163,6 +163,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ClassHelper\CartClass.cs" />
     <Compile Include="ClassHelper\EFclass.cs" />
     <Compile Include="ClassHelper\FrameData.cs" />
     <Compile Include="ClassHelper\UserDataClass.cs" />
@@ -247,23 +248,14 @@
     <Compile Include="Windows\ProductListWindow.xaml.cs">
       <DependentUpon>ProductListWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ShoppingCartWindow.xaml.cs">
+      <DependentUpon>ShoppingCartWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Pages\Buyer\ProfilePages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Buyer\ShoppingCartPages.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\Director\AddDeliveryPages.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Director\AddEmployeePages.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Director\EditEmployeePages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -326,17 +318,8 @@
     <Compile Include="Pages\Buyer\ProfilePages.xaml.cs">
       <DependentUpon>ProfilePages.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Buyer\ShoppingCartPages.xaml.cs">
-      <DependentUpon>ShoppingCartPages.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Director\AddDeliveryPages.xaml.cs">
       <DependentUpon>AddDeliveryPages.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Director\AddEmployeePages.xaml.cs">
-      <DependentUpon>AddEmployeePages.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Director\EditEmployeePages.xaml.cs">
-      <DependentUpon>EditEmployeePages.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Director\ManagementDeliveryPages.xaml.cs">
       <DependentUpon>ManagementDeliveryPages.xaml</DependentUpon>
@@ -371,6 +354,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\ProductListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ShoppingCartWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -429,6 +416,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Res\Cart.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

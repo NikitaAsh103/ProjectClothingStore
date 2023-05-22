@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectClothingStore.Windows.AuthorizationAndRegistrationWindows"
         mc:Ignorable="d"
-        Title="AuthorizationWindow" Height="550" Width="350">
+        Title="AuthorizationWindow" Height="550" Width="350"
+        WindowStartupLocation="CenterScreen">
     <Grid >
 
 

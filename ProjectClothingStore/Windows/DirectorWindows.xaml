@@ -17,8 +17,8 @@
                 Height="71" Width="215"
                 Click="btnEmployee_Click"/>
         <ListView x:Name="lvEmployee"
-                  Width="400"
-                   d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,400,0">
+                  Width="400" Margin="0,0,395,0.5"
+                   >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="idEmployee" Width="100" DisplayMemberBinding="{Binding IDEmployee}"/>

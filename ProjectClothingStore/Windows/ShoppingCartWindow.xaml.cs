@@ -10,19 +10,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProjectClothingStore.Pages.Director
+namespace ProjectClothingStore.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для AddEmployeePages.xaml
+    /// Логика взаимодействия для ShoppingCartWindow.xaml
     /// </summary>
-    public partial class AddEmployeePages : Page
+    public partial class ShoppingCartWindow : Window
     {
-        public AddEmployeePages()
+        public ShoppingCartWindow()
         {
             InitializeComponent();
+        }
+        private void GetListProduct()
+        {
+            LvCartProduct.ItemsSource = ClassHelper.CartClass.products;
         }
     }
 }
